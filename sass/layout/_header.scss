@@ -1,0 +1,190 @@
+// Home Page
+.header {
+    height: auto;
+    width: 100%;
+    background-image: linear-gradient(rgba($color-black,.7), rgba($color-black,.7)),url(img/hero-img.jpg);
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+
+    &__icon{
+        font-size: 2rem;
+        vertical-align: text-top;
+    }
+
+    &__logo-box {
+        float: left;
+        margin-top: 3rem;
+
+        @include respond(tab-land) { 
+            margin-left: 1.5rem;
+        }
+    }
+
+    &__logo {
+        height: 5rem;
+    }
+
+    &__nav {
+        float: right;
+        margin-top: 3rem;
+        position: relative;
+
+        @include respond(tab-land) { 
+            margin-right: 1.5rem;
+        }
+        // Phone Menu label
+        &-btn {
+            visibility: hidden;
+        }
+        // Phone Menu checkbox
+        & .input { visibility: hidden; }
+
+        & .input{
+            // FOR 700px SCREEN SIZE PHONE
+            @media only screen and (max-width: 43.75em) {
+                visibility: hidden;
+                margin-top: 3rem;
+                margin-left: -3rem;
+                &:focus{
+                    outline: none;
+                    border: none;
+                }
+
+                &:checked ~ .span::before{    // sibiling selector
+                    top: 0;
+                    left: 0;
+                    transform: rotate(140deg);
+                    background-color: black;
+                }
+                &:checked ~ .span::after{
+                    top: 0;
+                    left: 0;
+                    transform: rotate(-140deg);
+                }
+                &:checked ~ .span {
+                    background-color: #fff;                
+                }
+                &:checked ~ .header__list {
+                    display: inline-block;
+                    visibility: visible;
+                    position: absolute;
+                    top: -2rem;
+                    right: 6rem;
+                    animation: moveInLeft .5s ease-out;
+                }
+                &:checked ~ .header__list .header__item {
+                    display: block;
+                }
+            }   
+        }
+
+        // button nav // WHITE COLOR ROUND LABEL
+        &-btn {
+            @media only screen and (max-width: 43.75em) {
+                visibility: visible;
+                position: absolute;
+                top: -0.5rem;
+                right: 1rem;
+                height: 6rem;
+                width: 6rem;
+                border-radius: 50%;
+                background-color: #fff;
+                padding: 3rem;
+                cursor: pointer;  
+                &[type="checkbox"]:focus{
+                    outline: none;
+                    border: none;
+                }
+            }  
+        }
+        // 3 LINES
+        & .span{
+            @media only screen and (max-width: 43.75em) {
+                height: 2px;
+                width: 4rem;
+                background-color: #000;
+                display: block;
+                position: absolute;
+                top: 2.5rem;
+                left: -6rem;
+
+                &::before,
+                &::after{
+                    content: "";
+                    height: 100%;
+                    width: 100%;
+                    display: block;
+                    position: absolute;
+                    background-color: #000;
+                    transition: all .2s;
+                }                    
+                &::before{
+                    top: -8px;
+                    left: 0;
+                }
+                &::after{
+                    top: 8px;
+                    left: 0;
+                }       
+            }
+        }
+    }
+    // NAVIGATION
+    &__list {
+        list-style: none;
+
+        @media only screen and (max-width: 43.75em) { 
+            visibility: hidden;
+            display: none;
+            margin-right: 3rem;
+        }
+    }
+
+    &__item {
+        display: inline-block;
+
+        &:not(:last-child) {
+            margin-right: 1.5rem;
+        }
+    }
+
+    &__link {
+        &:link,
+        &:visited {
+            text-decoration: none;
+            color: $color-white;
+            font-size: 2.5rem;
+            letter-spacing: .05rem;
+            display: inline-block;
+            transition: all .3s;
+        }
+
+        &:hover,
+        &:active {
+            color: $color-primary-light-2;
+            transform: translateY(-.5rem);
+        }  
+    }
+
+    &__active:link,
+    &__active:visited
+    {
+        color: $color-primary-light-2;
+    }
+
+    &__text-box {
+        padding: 20rem 10% 15% 8%;
+        
+        @include respond(phone) {
+            padding: 20rem 10% 12% 8%;   
+        }
+        @media only screen and (max-width:25em) {
+            padding: 20rem 10% 7% 8%; 
+        }
+
+        & a:first-of-type {
+            margin-bottom: 2rem;
+        }
+    }
+}

@@ -1,0 +1,28 @@
+// 1st it moves to left then right then its original state
+@keyframes moveInRight{
+    0%{
+        transform: translateX(-8rem);
+        opacity: 0;
+    }
+    80%{
+        transform: translateX(3rem);
+    }
+    100%{
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+// 1st it moves to right then left then its original state
+@keyframes moveInLeft{
+    0%{
+        transform: translateX(6rem);
+        opacity: 0;
+    }
+    80%{
+        transform: translateX(-3rem);
+    }
+    100%{
+        transform: translate(0);
+        opacity: 1;
+    }
+}

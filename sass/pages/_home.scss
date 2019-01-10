@@ -1,0 +1,49 @@
+// About Us => Who We Are
+.section__about-us{
+    padding-top: 5rem;
+    height: 105vh;
+
+    @include respond(tab-port) { 
+        height: auto;
+    }  
+}
+
+// Our Products => PHOTOS
+.section__products{ 
+    height: 106vh;
+    background-color: $color-light-grey-1;
+    padding: 4rem 0;
+
+    @include respond(tab-land) { 
+        height: 98vh;
+    }
+    @include respond(tab-port) { 
+        height: auto;
+    }  
+}
+
+// Card Details => What we do
+.section__details{
+    padding: 5rem;
+    height: 100vh;
+
+    @include respond(tab-land) { 
+        height: 95vh;
+    }
+    @include respond(tab-port) { 
+        height: auto;
+    } 
+}
+
+//Contact Form
+.section__contact {
+    height: 112vh;
+    background-image: linear-gradient(to right bottom,$color-primary-light-1,$color-primary-dark-2);
+    border-top: 3rem solid $color-primary-light-1;
+    overflow: hidden;
+
+    @include respond(tab-land) { 
+        height: auto;
+        padding-bottom: 2.5rem;
+    } 
+} 

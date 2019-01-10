@@ -1,0 +1,52 @@
+// Card Details => What we do
+.details {
+    backface-visibility: hidden;
+    width: inherit;
+
+    @include respond(tab-port){
+        width: 60%;
+        margin: 0 auto;
+    }
+    @media only screen and(max-width: 25em){
+            width: 85%;
+        }
+
+    &__card {
+        height:42rem;
+        border-radius: .3rem;
+        box-shadow: 0 1rem 2rem rgba($color-black,.6);
+        padding: 2rem;
+        background-color: $color-light-grey-1;
+        text-align: center;
+        transition: all .3s;
+
+        @media only screen and(max-width: 62.5em){
+            height: 45rem;
+        }
+        @media only screen and(max-width: 50.31em){
+            height: 50rem;
+        }
+        @include respond(tab-port){
+            width: 100%;
+            margin: 5% auto;
+            pointer-events: none;  // To disable hover effect
+            height: auto;
+        }
+
+        &:hover {
+            transform: translateY(-1rem) scale(1.02);
+        }
+
+        &--icon {
+            display: block;
+            color: $color-primary-light-1;
+            font-size: 6rem;
+        }
+        
+        & .paragraph {
+            @include respond(tab-port){
+                padding-bottom: 2rem;
+            }
+        }
+    }
+}

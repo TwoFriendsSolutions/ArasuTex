@@ -1,0 +1,46 @@
+.row {
+    max-width: $grid-width;    
+    margin: 0 auto;
+
+    @include clearfix;          
+
+    &:not(:last-child) {
+        margin-bottom: $gutter-vertical;
+    }
+
+    [class^="col-"] {     // To select all column 
+        float: left; 
+
+        &:not(:last-child) {
+            margin-right: var(--gutter-horizontal-css);
+        }
+
+        @media only screen and (max-width: 56.25em) { 
+            width: 100% !important;
+        } 
+    }
+    
+    // CSS variable
+    @media only screen and (max-width: 68.75em) { 
+        --gutter-horizontal-css: 3rem;
+    }  
+    
+    .col-1-of-2 {
+        width: calc((100% - #{var(--gutter-horizontal-css)}) / 2);
+    }
+    .col-1-of-3 {
+        width: calc((100% - (2 * #{var(--gutter-horizontal-css)})) / 3);
+    }
+    .col-2-of-3 {
+        width: calc((2 * ((100% - 2 * #{var(--gutter-horizontal-css)}) / 3) ) + #{var(--gutter-horizontal-css)});
+    }
+    .col-1-of-4 {
+        width: calc((100% - 3 * #{var(--gutter-horizontal-css)}) / 4);
+    }
+    .col-2-of-4 {
+        width: calc( (2 * ((100% - 3 * #{var(--gutter-horizontal-css)}) / 4)) + #{var(--gutter-horizontal-css)});
+    }
+    .col-3-of-4 {
+        width: calc( (3 * ((100% - 3 * #{var(--gutter-horizontal-css)}) / 4)) + ( 2 * #{var(--gutter-horizontal-css)}) );
+    }
+}
